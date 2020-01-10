@@ -70,7 +70,11 @@ before_install:
   # https://github.com/travis-ci/travis-ci/issues/8920#issuecomment-352661024
   - python -c 'import os,sys,fcntl; flags = fcntl.fcntl(sys.stdout, fcntl.F_GETFL); fcntl.fcntl(sys.stdout, fcntl.F_SETFL, flags&~os.O_NONBLOCK);'
   - source ci/travis_process_gbq_encryption.sh
-  - export PATH="$HOME/miniconda3/bin:$PATH"
+  - if [[ "${TRAVIS_CPU_ARCH}" == "arm64" ]]; then
+     export PATH="$HOME/archiconda3/bin:$PATH";
+    else
+     export PATH="$HOME/miniconda3/bin:$PATH";
+    fi
   - df -h
   - pwd
   - uname -a
@@ -88,7 +92,7 @@ install:
   - echo "install start"
   - ci/prep_cython_cache.sh
   - if [[ "${TRAVIS_CPU_ARCH}" == "arm64" ]]; then
-     sudo ci/setup_env_arm64.sh;
+     ci/setup_env_arm64.sh;
     else
      ci/setup_env.sh;
     fi
@@ -100,7 +104,7 @@ script:
   - echo "$JOB"
   - source activate pandas-dev
   - if [[ "${TRAVIS_CPU_ARCH}" == "arm64" ]]; then
-     ci/run_tests_arm64.sh
+     ci/run_tests_arm64.sh;
     else
      ci/run_tests.sh;
     fi

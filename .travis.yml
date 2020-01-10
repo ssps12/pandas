@@ -35,6 +35,16 @@ matrix:
 
     - env:
         - JOB="3.7" ENV_FILE="ci/deps/travis-37.yaml" PATTERN="(not slow and not network)"
+        
+    - dist: trusty
+      os: linux
+      sudo: true
+      arch: arm64
+      env:
+        - JOB="3.7" ENV_FILE="ci/deps/travis-37-aarch64.yaml" PATTERN="(not slow and not network)"
+      services:
+        - mysql
+        - postgresql
 
     - env:
         - JOB="3.6, locale" ENV_FILE="ci/deps/travis-36-locale.yaml" PATTERN="((not slow and not network) or (single and db))" LOCALE_OVERRIDE="zh_CN.UTF-8" SQL="1"

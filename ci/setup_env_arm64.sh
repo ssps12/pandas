@@ -1,5 +1,4 @@
 #!/bin/bash -e
-
 IS_SUDO=""
 ARCHICONDA_PYTHON="python3.7"
 # edit the locale file if needed

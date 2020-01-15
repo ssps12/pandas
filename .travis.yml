@@ -7,7 +7,7 @@ python: 3.7
 # travis cache --delete inside the project directory from the travis command line client
 # The cache directories will be deleted if anything in ci/ changes in a commit
 cache:
- ccache: false
+ ccache: true
  directories:
   - $HOME/.cache # cython cache
   - $HOME/.ccache # compiler cache
@@ -92,7 +92,6 @@ install:
   - echo "install start"
   - ci/prep_cython_cache.sh
   - if [[ "${TRAVIS_CPU_ARCH}" == "arm64" ]]; then
-     echo "arm64 build";
      sudo bash +x ./ci/setup_env_arm64.sh;
     else
      ci/setup_env.sh;

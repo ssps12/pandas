@@ -106,6 +106,7 @@ script:
   - echo "$JOB"
   - source activate pandas-dev
   - if [[ "${TRAVIS_CPU_ARCH}" == "arm64" ]]; then
+     sudo chmod 777 ci/run_tests_arm64.sh
      ci/run_tests_arm64.sh;
     else
      ci/run_tests.sh;

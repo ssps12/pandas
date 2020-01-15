@@ -7,7 +7,7 @@ python: 3.7
 # travis cache --delete inside the project directory from the travis command line client
 # The cache directories will be deleted if anything in ci/ changes in a commit
 cache:
- ccache: true
+ ccache: false
  directories:
   - $HOME/.cache # cython cache
   - $HOME/.ccache # compiler cache
@@ -105,7 +105,6 @@ script:
   - echo "$JOB"
   - source activate pandas-dev
   - if [[ "${TRAVIS_CPU_ARCH}" == "arm64" ]]; then
-     sudo chmod 777 ci/run_tests_arm64.sh
      bash -x ci/run_tests_arm64.sh;
     else
      ci/run_tests.sh;

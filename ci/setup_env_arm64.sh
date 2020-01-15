@@ -1,5 +1,5 @@
 #!/bin/bash -e
-IS_SUDO=""
+IS_SUDO="sudo"
 ARCHICONDA_PYTHON="python3.7"
 # edit the locale file if needed
 if [[ "$(uname)" == "Linux" && -n "$LC_ALL" ]]; then

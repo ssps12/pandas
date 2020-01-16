@@ -92,8 +92,7 @@ install:
   - echo "install start"
   - ci/prep_cython_cache.sh
   - if [[ "${TRAVIS_CPU_ARCH}" == "arm64" ]]; then
-     sudo chmod a+x ci/setup_env_arm64.sh;
-     bash -x ci/setup_env_arm64.sh;
+     sudo bash +x ./ci/setup_env_arm64.sh;
     else
      ci/setup_env.sh;
     fi
@@ -105,7 +104,7 @@ script:
   - echo "$JOB"
   - source activate pandas-dev
   - if [[ "${TRAVIS_CPU_ARCH}" == "arm64" ]]; then
-     ci/run_tests_arm64.sh;
+     bash ci/run_tests_arm64.sh;
     else
      ci/run_tests.sh;
     fi

@@ -1,5 +1,5 @@
 #!/bin/bash -e
-IS_SUDO=""
+IS_SUDO="sudo"
 ARCHICONDA_PYTHON="python3.7"
 # edit the locale file if needed
 if [[ "$(uname)" == "Linux" && -n "$LC_ALL" ]]; then
@@ -159,6 +159,7 @@ echo "[Install pandas]"
 $IS_SUDO chmod -R 777 $MINICONDA_DIR
 $IS_SUDO $ARCHICONDA_PYTHON -m pip install numpy
 $IS_SUDO $ARCHICONDA_PYTHON -m pip install hypothesis
+$IS_SUDO $ARCHICONDA_PYTHON -m pip install cython
 $IS_SUDO chmod -R 777 /home/travis/.cache/
 $IS_SUDO $ARCHICONDA_PYTHON -m pip install --no-build-isolation -e .
 

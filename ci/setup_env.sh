@@ -1,5 +1,5 @@
 #!/bin/bash -e
-
+echo `which python`
 # edit the locale file if needed
 if [[ "$(uname)" == "Linux" && -n "$LC_ALL" ]]; then
     echo "Adding locale to the first line of pandas/__init__.py"

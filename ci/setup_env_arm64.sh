@@ -1,6 +1,7 @@
 #!/bin/bash -e
 IS_SUDO="sudo"
 ARCHICONDA_PYTHON="python3.7"
+echo `which python`
 # edit the locale file if needed
 if [[ "$(uname)" == "Linux" && -n "$LC_ALL" ]]; then
     echo "Adding locale to the first line of pandas/__init__.py"

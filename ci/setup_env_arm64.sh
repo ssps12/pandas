@@ -141,9 +141,9 @@ sudo chmod -R 777 $MINICONDA_DIR
 
 echo "[Install pandas]"
 $IS_SUDO chmod -R 777 $MINICONDA_DIR
-$IS_SUDO pip install numpy hypothesis cython
+pip install numpy hypothesis cython
 $IS_SUDO chmod -R 777 /home/travis/.cache/
-$IS_SUDO pip install --no-build-isolation -e .
+pip install --no-build-isolation -e .
 
 echo
 echo "conda list"

@@ -99,7 +99,7 @@ install:
   - ci/submit_cython_cache.sh
   - echo "install done"
 
-script:
+script: travis_wait 20
   - echo "script start"
   - echo "$JOB"
   - source activate pandas-dev

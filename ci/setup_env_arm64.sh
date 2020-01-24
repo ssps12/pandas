@@ -109,7 +109,7 @@ echo
 echo "remove any installed pandas package"
 echo "w/o removing anything else"
 $IS_SUDO conda remove pandas -y --force || true
-$IS_SUDO pip uninstall -y pandas || true
+pip uninstall -y pandas || true
 
 echo
 echo "remove postgres if has been installed with conda"

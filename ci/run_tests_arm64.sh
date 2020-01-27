@@ -20,7 +20,7 @@ if [[ $(uname) == "Linux" && -z $DISPLAY ]]; then
     XVFB="xvfb-run "
 fi
 
-PYTEST_CMD="pytest"
+PYTEST_CMD="pytest pandas"
 
 #echo $PYTEST_CMD
 sh -c "$PYTEST_CMD"

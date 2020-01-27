@@ -23,7 +23,7 @@ fi
 PYTEST_CMD="pytest"# -m \"$PATTERN\" -n auto --dist=loadfile -s --strict --durations=10 --junitxml=test-data.xml $TEST_ARGS $COVERAGE pandas"
 
 #echo $PYTEST_CMD
-bash -x -c "$PYTEST_CMD"
+sh -c "$PYTEST_CMD"
 
 if [[ "$COVERAGE" && $? == 0 && "$TRAVIS_BRANCH" == "master" ]]; then
     echo "uploading coverage"
